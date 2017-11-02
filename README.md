@@ -25,7 +25,7 @@ Following must be downloaded, installed, and configured according to the product
 Clone this repo to your local machine. If Windows, 
 
 - Right-click on parent folder and select:
-- git clone thisURL
+- git clone https://bitbucket.org/professorcase/node-express-mvc-ejs-start
 
 # Live updates
 
