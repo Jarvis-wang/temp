@@ -1,0 +1,48 @@
+{
+  "name": "node-express-mvc-ejs-bootstrap-starter",
+  "version": "0.0.1",
+  "description": "Node Express MVC EJS Bootstrap Starter app",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {
+    "array-flatten": "^2.1.1",
+    "async": "^2.1.2",
+    "body-parser": "^1.17.2",
+    "cheerio": "^0.22.0",
+    "compression": "^1.6.2",
+    "consolidate": "^0.15.0",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "errorhandler": "^1.4.3",
+    "express": "^4.15.3",
+    "express-ejs-layouts": "^2.3.0",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.14.2",
+    "express-status-monitor": "^0.1.5",
+    "express-validator": "latest",
+    "lodash": "latest",
+    "lodash.find": "^4.6.0",
+    "lodash.findindex": "^4.6.0",
+    "lodash.remove": "^4.7.0",
+    "method-override": "^2.3.9",
+    "mongoose": "latest",
+    "multer": "^1.2.0",
+    "nedb": "^1.8.0",
+    "node-sass": "^4.5.0",
+    "node-sass-middleware": "^0.10.0",
+    "request": "^2.78.0",
+    "serve-favicon": "^2.4.5",
+    "twit": "^2.2.9",
+    "winston": "^2.3.1"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  }
+}
