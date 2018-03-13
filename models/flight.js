@@ -18,6 +18,10 @@ const FlightSchema = new mongoose.Schema({
     required: true,
     default: 'KCPS'
   },
+  startingTime: {
+    type:Date,
+    required: true
+  },
   durationHours: {
     type: Number,
     required: true,
