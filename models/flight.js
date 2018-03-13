@@ -23,6 +23,11 @@ const FlightSchema = new mongoose.Schema({
     required: true,
     default: 1
   },
+  numPassengers: {
+    type:Number,
+    required:true,
+    default:4  
+  },
   pilotId:{
     type:Number,
     required:true,
