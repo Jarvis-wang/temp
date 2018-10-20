@@ -1,8 +1,8 @@
 node_modules
+.history
 .vscode
 /.vscode
 
-package-lock.json
 
 lib-cov
 *.seed
