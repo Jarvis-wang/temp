@@ -76,3 +76,16 @@ In your project folder, right-click and "Open Command Window Here as Administrat
 ## View Web App
 
 Open browser to the location displayed, e.g. http://localhost:8089/
+
+## GraphQL 
+
+GraphQL was added with:
+
+```DOS
+npm install graphql express-graphql -save
+npm audit fix
+```
+
+## Resources
+
+<https://medium.com/codingthesmartway-com-blog/creating-a-graphql-server-with-node-js-and-express-f6dddc5320e1>

@@ -1,0 +1,14 @@
+[
+    {
+        "_id": 1,
+        "email": "dcase@nwmissouri.edu",
+        "given": "Denise",
+        "family": "Case",
+        "street1": "800 University Drive",
+        "street2": "",
+        "city": "Maryville",
+        "state":"MO",
+        "zip": 64468,
+        "country": "USA"
+    }
+]
