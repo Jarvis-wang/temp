@@ -64,7 +64,7 @@ app.use(expressLayouts)
 app.use(errorHandler()) // load error handler
 
 const routes = require('./routes/index.js')
-app.use('/', routes)  // load routing
+app.use('/', routes)  // load routing to handle all requests
 LOG.info('Loaded routing.')
 
 app.use((req, res) => { res.status(404).render('404.ejs') }) // handle page not found errors
