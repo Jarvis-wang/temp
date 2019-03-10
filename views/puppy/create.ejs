@@ -2,9 +2,9 @@
   <div class=row>
     <div class="col col-md-12">
       
-      <br/>
+      <br>
       <h2>Create a new puppy </h2>
-      <br/>
+      <br>
       <% maxID=0; for (var i=0; i < puppies.query.length; i++) {
       if(puppies.query[i]._id > maxID) { maxID=puppies.query[i]._id;   }
       var age = puppies.query[i].age;}%>
@@ -25,7 +25,7 @@
                 </div>
             </form>
 
-            <br/>
+            <br>
 
             <form method="get" action="/puppy">
               <input type="submit" value="Return to list" class="btn btn-caution" />

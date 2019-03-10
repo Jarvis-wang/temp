@@ -19,11 +19,12 @@ A sample starter app using:
 
 ## Prerequisites
 
-Following must be downloaded, installed, and configured according to the product directions: 
+Following must be downloaded, installed, and configured according to the product directions:
 
-1. Node.js and npm 
+1. Node.js and npm
 1. Git version control system
-1. Add "Open Command Window Here as Administrator" to context menu. Download and run file from <https://github.com/profcase/open-command-window-here-as-admin>.
+1. If Windows, TortoiseGit
+1. Add "Open PowerShell Here as Administrator" to context menu. Download and run file from <https://github.com/profcase/open-command-window-here-as-admin>.
 
 ## Code Editor
 
@@ -34,10 +35,9 @@ Following must be downloaded, installed, and configured according to the product
 
 ## Get started
 
-Clone this repo to your local machine. If Windows, 
+Fork this repo into your own cloud account.
 
-- Right-click on parent folder (e.g. 44563) and select:
-- git clone https://bitbucket.org/professorcase/node-express-mvc-ejs-start
+Clone your repo down to your local machine.
 
 ## Review Code Organization
 
@@ -51,7 +51,7 @@ Clone this repo to your local machine. If Windows,
 
 ## Install Nodemon Globally
 
-In your new project folder, right-click and "Open Command Window Here as Administrator". Install nodemon globally to enable live updates.
+In your new project folder, right-click and "Open PowerShell Here as Administrator". Install nodemon globally to enable live updates.
 
 ```DOS
 > npm install -g nodemon
@@ -67,7 +67,7 @@ Run npm install to install the project dependencies listed in package.json.
 
 ## Run the App Locally
 
-In your project folder, right-click and "Open Command Window Here as Administrator". At the prompt, type nodemon app.js to start the server.  (CTRL-C to stop.)
+In your project folder, right-click and "Open PowerShell Here as Administrator". At the prompt, type nodemon app.js to start the server.  (CTRL-C to stop.)
 
 ```DOS
 > nodemon app.js
@@ -77,7 +77,7 @@ In your project folder, right-click and "Open Command Window Here as Administrat
 
 Open browser to the location displayed, e.g. http://localhost:8089/
 
-## GraphQL 
+## GraphQL
 
 GraphQL was added with:
 

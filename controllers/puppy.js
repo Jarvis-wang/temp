@@ -4,7 +4,7 @@ const Model = require('../models/puppy.js')
 const LOG = require('../utils/logger.js')
 const find = require('lodash.find')
 const remove = require('lodash.remove')
-const notfoundstring = 'puppies'
+const notfoundstring = 'puppy not found'
 
 // RESPOND WITH JSON DATA  --------------------------------------------
 
@@ -18,7 +18,7 @@ api.get('/findall', (req, res) => {
 // GET one JSON by ID
 api.get('/findone/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
-  const id = parseInt(req.params.id, 10) // base 10
+  const id = parseInt(req.params.id)
   const data = req.app.locals.puppies.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
@@ -48,7 +48,7 @@ api.get('/create', (req, res) => {
 // GET /delete/:id
 api.get('/delete/:id', (req, res) => {
   LOG.info(`Handling GET /delete/:id ${req}`)
-  const id = parseInt(req.params.id, 10) // base 10
+  const id = parseInt(req.params.id)
   const data = req.app.locals.puppies.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
@@ -64,7 +64,7 @@ api.get('/delete/:id', (req, res) => {
 // GET /details/:id
 api.get('/details/:id', (req, res) => {
   LOG.info(`Handling GET /details/:id ${req}`)
-  const id = parseInt(req.params.id, 10) // base 10
+  const id = parseInt(req.params.id)
   const data = req.app.locals.puppies.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
@@ -80,7 +80,7 @@ api.get('/details/:id', (req, res) => {
 // GET one
 api.get('/edit/:id', (req, res) => {
   LOG.info(`Handling GET /edit/:id ${req}`)
-  const id = parseInt(req.params.id, 10) // base 10
+  const id = parseInt(req.params.id)
   const data = req.app.locals.puppies.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
@@ -102,7 +102,7 @@ api.post('/save', (req, res) => {
   const data = req.app.locals.puppies.query
   const item = new Model()
   LOG.info(`NEW ID ${req.body._id}`)
-  item._id = parseInt(req.body._id, 10) // base 10
+  item._id = parseInt(req.body._id)
   item.name = req.body.name
   item.breed = req.body.breed
   item.age = parseInt(req.body.age, 10)
@@ -127,7 +127,7 @@ api.post('/save', (req, res) => {
 // POST update
 api.post('/save/:id', (req, res) => {
   LOG.info(`Handling SAVE request ${req}`)
-  const id = parseInt(req.params.id, 10) // base 10
+  const id = parseInt(req.params.id)
   LOG.info(`Handling SAVING ID=${id}`)
   const data = req.app.locals.puppies.query
   const item = find(data, { _id: id })
@@ -149,21 +149,19 @@ api.post('/save/:id', (req, res) => {
         }
       )
     }
-    LOG.info(`SAVING UPDATED puppy ${JSON.stringify(item)}`)
-    return res.redirect('/puppy')
   }
+  LOG.info(`SAVING UPDATED puppy ${JSON.stringify(item)}`)
+  return res.redirect('/puppy')
 })
 
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', (req, res) => {
   LOG.info(`Handling DELETE request ${req}`)
-  const id = parseInt(req.params.id, 10) // base 10
+  const id = parseInt(req.params.id)
   LOG.info(`Handling REMOVING ID=${id}`)
   const data = req.app.locals.puppies.query
   const item = find(data, { _id: id })
-  if (!item) {
-    return res.end(notfoundstring)
-  }
+  if (!item) { return res.end(notfoundstring) }
   if (item.isActive) {
     item.isActive = false
     console.log(`Deacctivated item ${JSON.stringify(item)}`)

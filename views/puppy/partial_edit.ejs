@@ -11,7 +11,7 @@
     </div>
     <div class="form-group">
       <label for="age">Age</label>
-      <input onchange="onAgeChange()" type="number" class="form-control" id="age" name="age" value="<%= puppy.age %>" required>
+      <input onchange="onFormChange()" type="number" class="form-control" id="age" name="age" value="<%= puppy.age %>" required>
     </div>
   </div>
 </div>
@@ -52,14 +52,11 @@
       </div>
       <%  }  %>
 </div>
-<br/>
+<br>
 <h4>
-  Puppy Cost =
-  <span id="puppyCost"></span>
+  Puppy Cost =  <span id="puppyCost"></span>
 </h4>
 <hr>
-<br/>
-<br/>
 
 <!-- PUT CLIENT SIDE CODE HERE -->
 <script>  
@@ -86,7 +83,7 @@
     return toCurrencyInt(this);
   };
 
-  function onAgeChange() {
+  function onFormChange() {
     const newAge = parseFloat($("input[name=age]").val());
     let price = 75
     if (newAge == 1) {
@@ -97,7 +94,7 @@
 
   // window.onload = a function that will call all update functions to display calculated values
   window.onload = function () {
-    onAgeChange();
+    onFormChange();
   }
 
   // prevent submission when hitting enter key - optional, but user-friendly 
