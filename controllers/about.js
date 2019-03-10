@@ -1,5 +1,6 @@
 const express = require('express')
 const api = express.Router()
+const LOG = require('../utils/logger.js')
 
 // Specify the handler for each required combination of URI and HTTP verb
 
@@ -10,7 +11,6 @@ api.get('/dev1', (req, res) => {
   LOG.info(`Handling GET /dev1 ${req}`)
   res.render('about/dev1/index.ejs',
     {
-      title: 'Dev 1 Put your name here',
       layout: 'layout.ejs'
     })
 })
@@ -20,7 +20,6 @@ api.get('/dev2', (req, res) => {
   LOG.info(`Handling GET /dev2 ${req}`)
   res.render('about/dev2/index.ejs',
     {
-      title: 'Dev 2 Put your name here',
       layout: 'layout.ejs'
     })
 })
@@ -30,7 +29,6 @@ api.get('/dev3', (req, res) => {
   LOG.info(`Handling GET /dev3 ${req}`)
   res.render('about/dev3/index.ejs',
     {
-      title: 'Dev 3 Put your name here',
       layout: 'layout.ejs'
     })
 })
