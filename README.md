@@ -7,9 +7,9 @@ A sample starter app using:
 - EJS templating engine
 - MVC design pattern
 - Mongoose MongoDB object modeling
-- Lodash for JavaScript object iteration and manipulation 
+- Lodash for JavaScript object iteration and manipulation
 - jQuery library for DOM manipulation
-- BootStrap framework for responsive design
+- BootStrap Material Design framework for responsive design
 - nedb In-memory database
 - Winston logger
 
@@ -42,18 +42,18 @@ Clone your repo down to your local machine.
 ## Review Code Organization
 
 - app.js - Starting point for the application. Defines the express server, requires routes and models. Loads everything and begins listening for events.
-- config/ - configuration information configuration/environment variables
 - controllers/ - logic for handling client requests
 - data/ - seed data loaded each time the application starts
 - models/ - schema descriptions for custom data types
 - routes/ - route definitions for the API
+- utils/ - utilities for logging and seeding data
 - views/ - EJS - embedded JavaScript and HTML used to create dynamic pages
 
 ## Install Nodemon Globally
 
 In your new project folder, right-click and "Open PowerShell Here as Administrator". Install nodemon globally to enable live updates.
 
-```DOS
+```PowerShell
 > npm install -g nodemon
 ```
 
@@ -61,7 +61,7 @@ In your new project folder, right-click and "Open PowerShell Here as Administrat
 
 Run npm install to install the project dependencies listed in package.json.
 
-```DOS
+```PowerShell
 > npm install
 ```
 
@@ -69,23 +69,10 @@ Run npm install to install the project dependencies listed in package.json.
 
 In your project folder, right-click and "Open PowerShell Here as Administrator". At the prompt, type nodemon app.js to start the server.  (CTRL-C to stop.)
 
-```DOS
+```PowerShell
 > nodemon app.js
 ```
 
 ## View Web App
 
 Open browser to the location displayed, e.g. http://localhost:8089/
-
-## GraphQL
-
-GraphQL was added with:
-
-```DOS
-npm install graphql express-graphql -save
-npm audit fix
-```
-
-## Resources
-
-<https://medium.com/codingthesmartway-com-blog/creating-a-graphql-server-with-node-js-and-express-f6dddc5320e1>
