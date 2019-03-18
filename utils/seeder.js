@@ -10,6 +10,7 @@ const categorys = require('../data/categorys.json')
 const orders = require('../data/orders.json')
 const products = require('../data/products.json')
 const orderLineItems = require('../data/orderLineItems.json')
+const accounts = require('../data/accounts.json')
 
 module.exports = (app) => {
   LOG.info('START seeder.')
@@ -31,6 +32,9 @@ module.exports = (app) => {
   db.categorys = new Datastore()
   db.categorys.loadDatabase()
 
+  db.accounts = new Datastore()
+  db.accounts.loadDatabase()
+
   db.orders = new Datastore()
   db.orders.loadDatabase()
 
@@ -39,6 +43,7 @@ module.exports = (app) => {
 
   db.orderLineItems = new Datastore()
   db.orderLineItems.loadDatabase()
+
 
   // insert the sample data into our data store
   db.categorys.insert(categorys)
@@ -50,6 +55,9 @@ module.exports = (app) => {
 
   db.orderLineItems.insert(orderLineItems)
 
+  db.accounts.insert(accounts)
+
+
   // initialize app.locals (these objects will be available to our controllers)
   app.locals.categorys = db.categorys.find(categorys)
   LOG.debug(`${app.locals.categorys.query.length} categorys seeded`)
@@ -57,6 +65,9 @@ module.exports = (app) => {
   // initialize app.locals (these objects will be available to our controllers)
   app.locals.orders = db.orders.find(orders)
   LOG.debug(`${app.locals.orders.query.length} orders seeded`)
+
+  app.locals.accounts = db.accounts.find(accounts)
+  LOG.debug(`${app.locals.account.query.length} accounts seeded`)
 
   app.locals.products = db.products.find(products)
   LOG.debug(`${app.locals.products.query.length} products seeded`)
