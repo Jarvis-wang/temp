@@ -21,7 +21,7 @@ router.get('/', (req, res, next) => {
 
 // Defer path requests to a particular controller
 router.use('/about', require('../controllers/about.js'))
-router.use('/customer', require('../controllers/customer.js'))
+router.use('/category', require('../controllers/category.js'))
 router.use('/order', require('../controllers/order.js'))
 router.use('/product', require('../controllers/product.js'))
 router.use('/orderLineItem', require('../controllers/orderLineItem.js'))

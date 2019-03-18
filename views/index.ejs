@@ -3,49 +3,9 @@
 <div class="container-fluid">
   <div class=row>
     <div class="col col-md-12">
-      <h1>E-commerce!</h1>
       <div style="width:100%;">
-        <div style="width:48%;float:left;">
-        <h4>Customer Details</h4>
-        <a href="https://ecommerce-a04.herokuapp.com/customer">https://ecommerce-a04.herokuapp.com/customer</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/customer/delete/4">https://ecommerce-a04.herokuapp.com/customer/delete/4</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/customer/details/4">https://ecommerce-a04.herokuapp.com/customer/details/4</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/customer/edit/4">https://ecommerce-a04.herokuapp.com/customer/edit/4</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/customer/findall">https://ecommerce-a04.herokuapp.com/customer/findall</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/customer/findone/4">https://ecommerce-a04.herokuapp.com/customer/findone/4</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/customer/create">https://ecommerce-a04.herokuapp.com/customer/create</a><br>
-        <h4>Order Details</h4>
-        <a href="https://ecommerce-a04.herokuapp.com/order">https://ecommerce-a04.herokuapp.com/order</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/order/delete/4">https://ecommerce-a04.herokuapp.com/order/delete/4</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/order/details/4">https://ecommerce-a04.herokuapp.com/order/details/4</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/order/edit/4">https://ecommerce-a04.herokuapp.com/order/edit/4</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/order/findall">https://ecommerce-a04.herokuapp.com/order/findall</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/order/findone/1">https://ecommerce-a04.herokuapp.com/order/findone/1</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/order/create">https://ecommerce-a04.herokuapp.com/order/create</a><br>
-        
-        </div>
-        <div style="width:48%;float:left;">
-        <h4>Product Details</h4>
-        <a href="https://ecommerce-a04.herokuapp.com/product">https://ecommerce-a04.herokuapp.com/product</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/product/delete/28">https://ecommerce-a04.herokuapp.com/product/delete/28</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/product/details/28">https://ecommerce-a04.herokuapp.com/product/details/28</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/product/edit/28">https://ecommerce-a04.herokuapp.com/product/edit/28</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/product/findall">https://ecommerce-a04.herokuapp.com/product/findall</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/product/findone/28">https://ecommerce-a04.herokuapp.com/product/findone/28<br></a>
-        <a href="https://ecommerce-a04.herokuapp.com/product/create">https://ecommerce-a04.herokuapp.com/product/create</a><br>
-        <h4>OrderLineItems details</h4>
-        <a href="https://ecommerce-a04.herokuapp.com/orderLineItem">https://ecommerce-a04.herokuapp.com/orderLineItem</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/orderLineItem/delete/7">https://ecommerce-a04.herokuapp.com/orderLineItem/delete/7</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/orderLineItem/details/7">https://ecommerce-a04.herokuapp.com/orderLineItem/details/7</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/orderLineItem/edit/7">https://ecommerce-a04.herokuapp.com/orderLineItem/edit/7</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/orderLineItem/findall">https://ecommerce-a04.herokuapp.com/orderLineItem/findall</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/orderLineItem/findone/1">https://ecommerce-a04.herokuapp.com/orderLineItem/findone/1</a><br>
-        <a href="https://ecommerce-a04.herokuapp.com/orderLineItem/create">https://ecommerce-a04.herokuapp.com/orderLineItem/create</a>
-        
-        
-        
-        
-        </div>
+       
+       
         
         
         </div>
@@ -63,42 +23,42 @@
      <div class="lay" style="background:#F67280;">
 
       <p>There are
-        <%= customers.query.length %> customers.
+        <%= categorys.query.length %> categorys.
           <br/>
       </p>
-      <% for (var i = customers.query.length-1; i >= 0; i--) {   
-        customer = customers.query[i];   %>
+      <% for (var i = categorys.query.length-1; i >= 0; i--) {   
+        category = categorys.query[i];   %>
         <div class="panel panel-default">
           <div class="panel-heading"></div>
           <div class="text-muted pull-right"></div>
           <div class="panel-body">
             ID:
-            <%=  customer._id %>
+            <%=  category._id %>
               <br> Email:
-              <%=customer.email%>
+              <%=category.email%>
                 <br/> Given Name:
-                <%=customer.given%>
+                <%=category.given%>
                   <br/> Family Name:
-                  <%=customer.family%>
+                  <%=category.family%>
                   <br/> Address:
                   <br/>Street 1:
-                  <%=customer.street1%>
+                  <%=category.street1%>
                   </br>Street 2:
-                  <%=customer.street2%>
+                  <%=category.street2%>
                 </br>City:
-                <%=customer.city%>
+                <%=category.city%>
               </br>State:
-              <%=customer.state%>
+              <%=category.state%>
             </br>Zip:
-            <%=customer.zip%>
+            <%=category.zip%>
             <br/>
-            <%=customer.country%>
+            <%=category.country%>
 
       
           </div>
         </div>
         <% } %>
-<center><a href="/customer" class="btn btn-info">Open Customer Data</a></center>
+<center><a href="/category" class="btn btn-info">Open category Data</a></center>
 
 
      </div>
