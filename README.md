@@ -76,3 +76,10 @@ In your project folder, right-click and "Open PowerShell Here as Administrator".
 ## View Web App
 
 Open browser to the location displayed, e.g. http://localhost:8089/
+
+## Team Members
+
+ - Ravi Kumar Atluri
+ - Varun Goud Pulipalpula
+ - Bala Gopi Krishna Sabbineni
+ - Midhun Kandakatla

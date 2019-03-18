@@ -16,15 +16,17 @@ const router = express.Router()
 // Manage top-level request first
 router.get('/', (req, res, next) => {
   LOG.debug('Request to /')
-  res.render('index.ejs', { title: 'E- Commerce' })
+  res.render('index.ejs', { title: 'Express App' })
 })
 
 // Defer path requests to a particular controller
 router.use('/about', require('../controllers/about.js'))
+
+router.use('/user', require('../controllers/user.js'))
+router.use('/account', require('../controllers/account.js'))
 router.use('/category', require('../controllers/category.js'))
-router.use('/order', require('../controllers/order.js'))
-router.use('/product', require('../controllers/product.js'))
-router.use('/orderLineItem', require('../controllers/orderLineItem.js'))
+router.use('/transaction', require('../controllers/transaction.js'))
+]
 
 LOG.debug('END routing')
 module.exports = router

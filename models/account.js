@@ -1,20 +1,20 @@
 /** 
-*  Order model
-*  Describes the characteristics of each attribute in an order resource.
+*  Customer model
+*  Describes the characteristics of each attribute in a customer resource.
 *
-* @author Denise Case <dcase@nwmissouri.edu>
+* @author Varun Goud Pulipalpula <s534848@nwmissouri.edu>
 *
 */
 
 // see <https://mongoosejs.com/> for more information
 const mongoose = require('mongoose')
 
-const account = new mongoose.Schema({
+const accountSchema = new mongoose.Schema({
   _id: { type: Number, required: true },
-  email: { type: String, required: true },
-  given: { type: String, required: true, default: 'Given' },
-  family: { type: String, required: true, default: 'Family' },
-  password:{type:String,required: true, default:"000000"}
+  accountnumber:{type:Number,required: true, default: ' '},
+  accountName : {type:String,required: true},
+  userId:{type:Number,required: true},
+  transactionId:{type: Number, required: true},
 })
 
-module.exports = mongoose.model('Order', OrderSchema)
+module.exports = mongoose.model('account', accountSchema)

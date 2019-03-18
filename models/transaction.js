@@ -1,14 +1,21 @@
+/** 
+*  Customer model
+*  Describes the characteristics of each attribute in a customer resource.
+*
+* @author Bala Gopi Krishna Sabbineni <s534801@nwmissouri.edu>
+*
+*/
 
-
+// see <https://mongoosejs.com/> for more information
 const mongoose = require('mongoose')
 
-const TransactionSchema = new mongoose.Schema({
+const transactionSchema = new mongoose.Schema({
   _id: { type: Number, required: true },
-  orderID: { type: Number, required: true, unique: true, default: 555 },
-  email: { type: String, required: true },
-  dateShipped: { type: Date, required: false },
-  productID: { type: Number, required: true },
-   
+  transactionId:{type: Number, required: true},
+  transactiondate:{type:String,required: true},
+  transactionamount:{type:Number,required: true},
+  userId:{type:Number, required: true}
+
 })
 
-module.exports = mongoose.model('Transaction', TransactionSchema)
+module.exports = mongoose.model('transaction', transactionSchema)
