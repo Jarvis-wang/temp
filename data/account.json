@@ -1,0 +1,38 @@
+[
+    {
+      "_id": 1,  
+      "email": "dcase@nwmissouri.edu",
+      "given": "Denise",
+      "family": "Case",
+      "pasword":"000000"
+    },
+    {
+      "_id": 91,
+      "email": "s533975@nwmissouri.edu",
+      "given": "Lohitha",
+      "family": "Bhethalam",
+      "pasword":"aw1230"
+    },
+    {
+      "_id": 92,
+      "email": "S533901@nwmissouri.edu",
+      "given": "Rahul",
+      "family": "Dayam",
+      "pasword":"654321"
+    },
+    {
+      "_id": 93,
+      "email": "s533708@nwmissouri.edu",
+      "given": "Sai Krishna Teja",
+      "family": "Kancharla",
+      "pasword":"000000"
+    },
+  
+    {
+      "_id": 94,
+      "email": "s533708@nwmissouri.edu",
+      "given": "Sai Krishna Teja",
+      "family": "Kancharla",
+      "pasword":"123456"
+    }
+  ]
