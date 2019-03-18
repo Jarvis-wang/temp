@@ -1,98 +1,38 @@
 [
-  {
-    "_id": 101,
-    "email": "dcase@nwmissouri.edu",
-    "datePlaced": "2018-7-01",
-    "dateShipped": "2018-7-04",
-    "paymentType": "Cash",
-    "paid": true
-  },
-  {
-    "_id": 102,
-    "email": "dcase@nwmissouri.edu",
-    "datePlaced": "2018-9-01",
-    "dateShipped": "2018-9-04",
-    "paymentType": "Cash",
-    "paid": true
-  },
-  {
-    "_id": 103,
-    "email": "dcase@nwmissouri.edu",
-    "datePlaced": "2018-11-01",
-    "dateShipped": "2018-11-04",
-    "paymentType": "Cash",
-    "paid": true
-  },
-  {
-    "_id": 911,
-    "email": "s533975@nwmissouri.edu",
-    "datePlaced": "2018-7-01",
-    "dateShipped": "2018-7-04",
-    "paymentType": "Cash",
-    "paid": true
-  },
-  {
-    "_id": 912,
-    "email": "s533975@nwmissouri.edu",
-    "datePlaced": "2018-9-01",
-    "dateShipped": "2018-9-04",
-    "paymentType": "Cash",
-    "paid": true
-  },
-  {
-    "_id": 913,
-    "email": "s533975@nwmissouri.edu",
-    "datePlaced": "2018-11-01",
-    "dateShipped": "2018-11-04",
-    "paymentType": "Cash",
-    "paid": true
-  },
-  {
-    "_id": 921,
-    "email": "S533901@nwmissouri.edu",
-    "datePlaced": "2018-7-01",
-    "dateShipped": "2018-7-04",
-    "paymentType": "Cash",
-    "paid": true
-  },
-  {
-    "_id": 922,
-    "email": "S533901@nwmissouri.edu",
-    "datePlaced": "2018-9-01",
-    "dateShipped": "2018-9-04",
-    "paymentType": "Cash",
-    "paid": true
-  },
-  {
-    "_id": 923,
-    "email": "S533901@nwmissouri.edu",
-    "datePlaced": "2018-11-01",
-    "dateShipped": "2018-11-04",
-    "paymentType": "Cash",
-    "paid": true
-  },
-  {
-    "_id": 931,
-    "email": "s533708@nwmissouri.edu",
-    "datePlaced": "2018-7-01",
-    "dateShipped": "2018-7-04",
-    "paymentType": "Cash",
-    "paid": true
-  },
-  {
-    "_id": 932,
-    "email": "s533708@nwmissouri.edu",
-    "datePlaced": "2018-9-01",
-    "dateShipped": "2018-9-04",
-    "paymentType": "Cash",
-    "paid": true
-  },
-  {
-    "_id": 933,
-    "email": "s533708@nwmissouri.edu",
-    "datePlaced": "2018-11-01",
-    "dateShipped": "2018-11-04",
-    "paymentType": "Cash",
-    "paid": true
-  }
+    {
+        "_id": 1,
+        "email": "satish@gmail.com",
+        "datePlaced": "2018-11-01",
+        "dateShipped": "2018-11-04",
+        "paymentType": "Cash",
+        "amountDue": 34.98,
+        "paid": true
+    },
+    {
+        "_id": 2,
+        "email": "s5234929@nwmissouri.edu",
+        "datePlaced": "2018-11-01",
+        "dateShipped": "2018-11-04",
+        "paymentType": "Cash",
+        "amountDue": 34.98,
+        "paid": true
+    },
+    {
+        "_id": 3,
+        "email": "John Cena",
+        "datePlaced": "2018-11-21",
+        "dateShipped": "2018-11-30",
+        "paymentType": "Cash",
+        "amountDue": 12.2,
+        "paid": true
+    },
+    {
+        "_id": 4,
+        "email": "Roman Empire",
+        "datePlaced": "2018-12-21",
+        "dateShipped": "2018-12-30",
+        "paymentType": "Cash",
+        "amountDue": 17.2,
+        "paid": true
+    }
 ]

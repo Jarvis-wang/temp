@@ -1,17 +1,14 @@
-/** 
-*  Customer controller
-*  Handles requests related to customers (see routes)
-*
-* @author Denise Case <dcase@nwmissouri.edu>
-*
-*/
+/**
+ * Author : 
+ * Email : 
+ */
 const express = require('express')
 const api = express.Router()
+const Model = require('../models/customer.js')
 const LOG = require('../utils/logger.js')
 const find = require('lodash.find')
 const remove = require('lodash.remove')
-const Model = require('../models/customer.js')
-const notfoundstring = 'customer not found'
+const notfoundstring = 'customers'
 
 // RESPOND WITH JSON DATA  --------------------------------------------
 
@@ -25,7 +22,7 @@ api.get('/findall', (req, res) => {
 // GET one JSON by ID
 api.get('/findone/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
-  const id = parseInt(req.params.id)
+  const id = parseInt(req.params.id, 10) // base 10
   const data = req.app.locals.customers.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
@@ -46,7 +43,7 @@ api.get('/create', (req, res) => {
   LOG.debug(JSON.stringify(item))
   res.render('customer/create',
     {
-      title: 'Create customer',
+      title: 'Create Customer',
       layout: 'layout.ejs',
       customer: item
     })
@@ -55,14 +52,14 @@ api.get('/create', (req, res) => {
 // GET /delete/:id
 api.get('/delete/:id', (req, res) => {
   LOG.info(`Handling GET /delete/:id ${req}`)
-  const id = parseInt(req.params.id)
+  const id = parseInt(req.params.id, 10) // base 10
   const data = req.app.locals.customers.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
   LOG.info(`RETURNING VIEW FOR ${JSON.stringify(item)}`)
   return res.render('customer/delete.ejs',
     {
-      title: 'Delete customer',
+      title: 'Delete Customer',
       layout: 'layout.ejs',
       customer: item
     })
@@ -71,14 +68,14 @@ api.get('/delete/:id', (req, res) => {
 // GET /details/:id
 api.get('/details/:id', (req, res) => {
   LOG.info(`Handling GET /details/:id ${req}`)
-  const id = parseInt(req.params.id)
+  const id = parseInt(req.params.id, 10) // base 10
   const data = req.app.locals.customers.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
   LOG.info(`RETURNING VIEW FOR ${JSON.stringify(item)}`)
   return res.render('customer/details.ejs',
     {
-      title: 'customer Details',
+      title: 'Customer Details',
       layout: 'layout.ejs',
       customer: item
     })
@@ -87,7 +84,7 @@ api.get('/details/:id', (req, res) => {
 // GET one
 api.get('/edit/:id', (req, res) => {
   LOG.info(`Handling GET /edit/:id ${req}`)
-  const id = parseInt(req.params.id)
+  const id = parseInt(req.params.id, 10) // base 10
   const data = req.app.locals.customers.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
@@ -109,7 +106,7 @@ api.post('/save', (req, res) => {
   const data = req.app.locals.customers.query
   const item = new Model()
   LOG.info(`NEW ID ${req.body._id}`)
-  item._id = parseInt(req.body._id)
+  item._id = parseInt(req.body._id, 10) // base 10
   item.email = req.body.email
   item.given = req.body.given
   item.family = req.body.family
@@ -119,15 +116,16 @@ api.post('/save', (req, res) => {
   item.state = req.body.state
   item.zip = req.body.zip
   item.country = req.body.country
-  data.push(item)
-  LOG.info(`SAVING NEW customer ${JSON.stringify(item)}`)
-  return res.redirect('/customer')
+    data.push(item)
+    LOG.info(`SAVING NEW customer ${JSON.stringify(item)}`)
+    return res.redirect('/customer')
+  
 })
 
-// POST update with id
+// POST update
 api.post('/save/:id', (req, res) => {
   LOG.info(`Handling SAVE request ${req}`)
-  const id = parseInt(req.params.id)
+  const id = parseInt(req.params.id, 10) // base 10
   LOG.info(`Handling SAVING ID=${id}`)
   const data = req.app.locals.customers.query
   const item = find(data, { _id: id })
@@ -143,18 +141,20 @@ api.post('/save/:id', (req, res) => {
   item.state = req.body.state
   item.zip = req.body.zip
   item.country = req.body.country
-  LOG.info(`SAVING UPDATED customer ${JSON.stringify(item)}`)
+  LOG.info(`SAVING CREATE customer ${JSON.stringify(item)}`)
   return res.redirect('/customer')
 })
 
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', (req, res) => {
   LOG.info(`Handling DELETE request ${req}`)
-  const id = parseInt(req.params.id)
+  const id = parseInt(req.params.id, 10) // base 10
   LOG.info(`Handling REMOVING ID=${id}`)
   const data = req.app.locals.customers.query
   const item = find(data, { _id: id })
-  if (!item) { return res.end(notfoundstring) }
+  if (!item) {
+    return res.end(notfoundstring)
+  }
   if (item.isActive) {
     item.isActive = false
     console.log(`Deacctivated item ${JSON.stringify(item)}`)

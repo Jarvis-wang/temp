@@ -1,17 +1,15 @@
-/** 
-*  Order controller
-*  Handles requests related to orders (see routes)
-*
-* @author Denise Case <dcase@nwmissouri.edu>
-*
-*/
+/**
+ * Author : 
+ * Email : 
+ */
+
 const express = require('express')
 const api = express.Router()
+const Model = require('../models/order.js')
 const LOG = require('../utils/logger.js')
 const find = require('lodash.find')
 const remove = require('lodash.remove')
-const Model = require('../models/order.js')
-const notfoundstring = 'order not found'
+const notfoundstring = 'orders'
 
 // RESPOND WITH JSON DATA  --------------------------------------------
 
@@ -25,7 +23,7 @@ api.get('/findall', (req, res) => {
 // GET one JSON by ID
 api.get('/findone/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
-  const id = parseInt(req.params.id)
+  const id = parseInt(req.params.id, 10) // base 10
   const data = req.app.locals.orders.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
@@ -55,7 +53,7 @@ api.get('/create', (req, res) => {
 // GET /delete/:id
 api.get('/delete/:id', (req, res) => {
   LOG.info(`Handling GET /delete/:id ${req}`)
-  const id = parseInt(req.params.id)
+  const id = parseInt(req.params.id, 10) // base 10
   const data = req.app.locals.orders.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
@@ -71,7 +69,7 @@ api.get('/delete/:id', (req, res) => {
 // GET /details/:id
 api.get('/details/:id', (req, res) => {
   LOG.info(`Handling GET /details/:id ${req}`)
-  const id = parseInt(req.params.id)
+  const id = parseInt(req.params.id, 10) // base 10
   const data = req.app.locals.orders.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
@@ -87,7 +85,7 @@ api.get('/details/:id', (req, res) => {
 // GET one
 api.get('/edit/:id', (req, res) => {
   LOG.info(`Handling GET /edit/:id ${req}`)
-  const id = parseInt(req.params.id)
+  const id = parseInt(req.params.id, 10) // base 10
   const data = req.app.locals.orders.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
@@ -109,21 +107,23 @@ api.post('/save', (req, res) => {
   const data = req.app.locals.orders.query
   const item = new Model()
   LOG.info(`NEW ID ${req.body._id}`)
-  item._id = parseInt(req.body._id)
+  item._id = parseInt(req.body._id, 10) // base 10
   item.email = req.body.email
   item.datePlaced = req.body.datePlaced
   item.dateShipped = req.body.dateShipped
-  item.paymentType = item.paymentType
-  item.paid = item.paid
-  data.push(item)
-  LOG.info(`SAVING NEW order ${JSON.stringify(item)}`)
-  return res.redirect('/order')
+  item.paymentType = req.body.paymentType
+  item.amountDue = req.body.amountDue
+  item.paid = req.body.paid
+    data.push(item)
+    LOG.info(`SAVING NEW order ${JSON.stringify(item)}`)
+    return res.redirect('/order')
+  
 })
 
 // POST update
 api.post('/save/:id', (req, res) => {
   LOG.info(`Handling SAVE request ${req}`)
-  const id = parseInt(req.params.id)
+  const id = parseInt(req.params.id, 10) // base 10
   LOG.info(`Handling SAVING ID=${id}`)
   const data = req.app.locals.orders.query
   const item = find(data, { _id: id })
@@ -133,20 +133,23 @@ api.post('/save/:id', (req, res) => {
   item.email = req.body.email
   item.datePlaced = req.body.datePlaced
   item.dateShipped = req.body.dateShipped
-  item.paymentType = item.paymentType
-  item.paid = item.paid
-  LOG.info(`SAVING UPDATED order ${JSON.stringify(item)}`)
+  item.paymentType = req.body.paymentType
+  item.amountDue = req.body.amountDue
+  item.paid = req.body.paid
+  LOG.info(`SAVING CREATE order ${JSON.stringify(item)}`)
   return res.redirect('/order')
 })
 
 // DELETE id (uses HTML5 form method POST)
 api.post('/delete/:id', (req, res) => {
   LOG.info(`Handling DELETE request ${req}`)
-  const id = parseInt(req.params.id)
+  const id = parseInt(req.params.id, 10) // base 10
   LOG.info(`Handling REMOVING ID=${id}`)
   const data = req.app.locals.orders.query
   const item = find(data, { _id: id })
-  if (!item) { return res.end(notfoundstring) }
+  if (!item) {
+    return res.end(notfoundstring)
+  }
   if (item.isActive) {
     item.isActive = false
     console.log(`Deacctivated item ${JSON.stringify(item)}`)
