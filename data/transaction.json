@@ -1,0 +1,24 @@
+[
+    {
+      "_id": 1,
+      "orderID": 101,
+      "email": "jingli@gmail.com",
+      "dateShipped": "2018-7-04",
+      "productID": 11
+    },
+    {
+        "_id": 2,
+        "orderID": 102,
+        "email": "tomjerry@gmail.com",
+        "dateShipped": "2018-7-24",
+        "productID": 12
+    },
+    {
+        "_id": 3,
+        "orderID": 103,
+        "email": "xiaotuantuan@gmail.com",
+        "dateShipped": "2018-7-14",
+        "productID": 13
+    }
+    
+  ]

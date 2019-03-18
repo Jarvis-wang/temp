@@ -1,0 +1,27 @@
+<br>
+<br>
+<div class="container-fluid">
+  <div class=row>
+    <div class="col col-md-12">
+
+      <h2>transaction details</h2>
+      <br>
+      <br> ID: <%=  transaction._id %>
+      <br> Email: <%=transaction.email%>
+      <br> Given: <%=transaction.given%>
+      <br> Family: <%=transaction.family%>
+      <br> Street 1: <%=transaction.street1%>
+      <br> Street 2: <%=transaction.street2 %>
+      <br> City: <%=transaction.city %>
+      <br> State: <%=transaction.state %>
+      <br> Zip: <%=transaction.zip %>
+      <br> Country: <%=transaction.country %>
+      <hr>
+
+      <form method="get" action="/transaction">
+        <input type="submit" value="Return to list" class="btn btn-caution" />
+      </form>
+
+    </div>
+  </div>
+</div>

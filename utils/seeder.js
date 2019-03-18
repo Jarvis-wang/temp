@@ -4,7 +4,7 @@ const LOG = require('../utils/logger.js')
 
 // require each data file
 
-const customers = require('../data/customers.json')
+const transaction = require('../data/transaction.json')
 const products = require('../data/products.json')
 const orders = require('../data/orders.json')
 const orderLineItems = require('../data/orderLineItems.json')
@@ -16,17 +16,17 @@ module.exports = (app) => {
   LOG.info('START seeder.')
   const db = {}
 
-  // Customers don't depend on anything else...................
+  // transaction don't depend on anything else...................
 
-  db.customers = new Datastore()
-  db.customers.loadDatabase()
+  db.transaction = new Datastore()
+  db.transaction.loadDatabase()
 
   // insert the sample data into our data store
-  db.customers.insert(customers)
+  db.transaction.insert(transaction)
 
   // initialize app.locals (these objects will be available to our controllers)
-  app.locals.customers = db.customers.find(customers)
-  LOG.debug(`${app.locals.customers.query.length} customers seeded`)
+  app.locals.transaction = db.transaction.find(transaction)
+  LOG.debug(`${app.locals.transaction.query.length} transaction seeded`)
 
   // Products don't depend on anything else .....................
 
