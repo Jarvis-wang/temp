@@ -1,26 +1,39 @@
 [
-  {
-    "_id": 10,
-    "productKey": "Coffee Mug Best",
-    "description": "Best mug ever!",
-    "unitPrice": 10.00
-  },
-  {
-    "_id": 12,
-    "productKey": "Coffee Mug Dev",
-    "description": "Developers rule!",
-    "unitPrice": 12.00
-  },
-  {
-    "_id": 20,
-    "productKey": "Tshirt green",
-    "description": "I heart HTML",
-    "unitPrice": 20.00
-  },
-  {
-    "_id": 22,
-    "productKey": "Tshirt blue",
-    "description": "I heart CSS",
-    "unitPrice": 22.00
-  }
+    {
+        "_id": 1,
+        "productKey": "Coffee Mug",
+        "description": "Best mug ever!",
+        "unitPrice": 9.99
+    },
+    {
+        "_id": 2,
+        "productKey": "Tshirt",
+        "description": "Even better shirt",
+        "unitPrice": 24.99
+    },
+    {
+        "_id": 4,
+        "productKey": "iphones",
+        "description": "stay foolish stay hungry",
+        "unitPrice": 600.00
+
+    },
+    {
+        "_id": 55,
+        "productKey": " Watches",
+        "description": "Better watches",
+        "unitPrice": 50.89
+    },
+    {
+        "_id": 23,
+        "productKey": " Air Jordon Shoe",
+        "description": "Better than Anything",
+        "unitPrice": 102.29
+    },
+    {
+        "_id": 28,
+        "productKey": "Bags",
+        "description": "Better bags",
+        "unitPrice": 19.99
+    }
 ]
