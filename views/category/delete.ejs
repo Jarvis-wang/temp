@@ -1,0 +1,37 @@
+<br/>
+<br/>
+<h2>Confirm deletion of category</h2>
+<br/>
+<br/> ID:
+<%=  category._id %>
+  <br> Email:
+  <%=category.email%>
+    <br/> Given Name:
+    <%=category.given%>
+      <br/> Family Name:
+      <%=category.family%>
+      <br/> Address:
+      <br/>Street 1:
+      <%=category.street1%>
+      </br>Street 2:
+      <%=category.street2%>
+    </br>City:
+    <%=category.city%>
+  </br>State:
+  <%=category.state%>
+</br>Zip:
+<%=category.zip%>
+<br/>
+<%=category.country%>
+
+        <br/>
+        <br/>
+
+            <form method="get" action="/category">
+              <input type="submit" value="Return to list" class="btn btn-caution" />
+            </form>
+
+            <br/>
+            <form method="POST" action="/category/delete/<%= category._id %>">
+              <input type="submit" value="Delete this item" class="btn btn-danger pull-right" />
+            </form>
