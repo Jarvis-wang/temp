@@ -2,14 +2,16 @@
 const Datastore = require('nedb')
 const LOG = require('../utils/logger.js')
 
+
 // require each data file
 
 const transactions = require('../data/transactions.json')
 const products = require('../data/products.json')
+
+
 const categorys = require('../data/categorys.json')
 const orders = require('../data/orders.json')
 const orderLineItems = require('../data/orderLineItems.json')
-const accounts = require('../data/accounts.json')
 
 module.exports = (app) => {
   LOG.info('START seeder.')
@@ -31,9 +33,6 @@ module.exports = (app) => {
   db.categorys = new Datastore()
   db.categorys.loadDatabase()
 
-  db.accounts = new Datastore()
-  db.accounts.loadDatabase()
-
   db.orders = new Datastore()
   db.orders.loadDatabase()
 
@@ -42,7 +41,6 @@ module.exports = (app) => {
 
   db.orderLineItems = new Datastore()
   db.orderLineItems.loadDatabase()
-
 
   // insert the sample data into our data store
   db.categorys.insert(categorys)
@@ -53,9 +51,6 @@ module.exports = (app) => {
   db.products.insert(products)
 
   db.orderLineItems.insert(orderLineItems)
-
-  db.accounts.insert(accounts)
-
 
   // initialize app.locals (these objects will be available to our controllers)
   app.locals.categorys = db.categorys.find(categorys)
