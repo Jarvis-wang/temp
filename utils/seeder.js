@@ -7,7 +7,7 @@ const LOG = require('../utils/logger.js')
 
 const transactions = require('../data/transactions.json')
 const products = require('../data/products.json')
-
+const accounts = require('../data/accounts.json')
 
 const categorys = require('../data/categorys.json')
 const orders = require('../data/orders.json')
@@ -32,10 +32,10 @@ module.exports = (app) => {
   // Products don't depend on anything else .....................
   db.categorys = new Datastore()
   db.categorys.loadDatabase()
-
+  db.accounts = new Datastore()
   db.orders = new Datastore()
   db.orders.loadDatabase()
-
+db.accounts.loadDatabase()
   db.products = new Datastore()
   db.products.loadDatabase()
 
@@ -49,7 +49,7 @@ module.exports = (app) => {
   db.orders.insert(orders)
 
   db.products.insert(products)
-
+  db.accounts.insert(accounts)
   db.orderLineItems.insert(orderLineItems)
 
   // initialize app.locals (these objects will be available to our controllers)
