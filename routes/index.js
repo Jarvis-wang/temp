@@ -24,6 +24,8 @@ router.use('/about', require('../controllers/about.js'))
 router.use('/category', require('../controllers/category.js'))
 router.use('/order', require('../controllers/order.js'))
 router.use('/product', require('../controllers/product.js'))
+router.use('/account', require('../controllers/account.js'))
+router.use('/transaction', require('../controllers/transaction.js'))
 router.use('/orderLineItem', require('../controllers/orderLineItem.js'))
 
 LOG.debug('END routing')

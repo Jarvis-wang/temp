@@ -22,15 +22,10 @@
 
           <br> ID: <%=  transaction._id %>
           <br> Email: <%=transaction.email%>
-          <br> Given: <%=transaction.given%>
-          <br> Family: <%=transaction.family%>
-          <br> Street 1: <%=transaction.street1%>
-          <br> Street 2: <%=transaction.street2 %>
-          <br> City: <%=transaction.city %>
-          <br> State: <%=transaction.state %>
-          <br> Zip: <%=transaction.zip %>
-          <br> Country: <%=transaction.country %>
-
+          <br> orderID:<%=transaction.orderID%>
+          <br> dateShipped:<%=transaction.dateShipped%>
+          <br> productID:<%=transaction.productID%>
+          
           <hr>
           <a href="/transaction/delete/<%= transaction._id  %>" class="btn btn-danger"> Delete </a>
           <a href="/transaction/details/<%= transaction._id %>" class="btn btn-info"> Details </a>

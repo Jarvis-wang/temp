@@ -4,11 +4,10 @@ const LOG = require('../utils/logger.js')
 
 // require each data file
 
-const transaction = require('../data/transaction.json')
+const transactions = require('../data/transactions.json')
 const products = require('../data/products.json')
 const categorys = require('../data/categorys.json')
 const orders = require('../data/orders.json')
-const products = require('../data/products.json')
 const orderLineItems = require('../data/orderLineItems.json')
 const accounts = require('../data/accounts.json')
 
@@ -18,15 +17,15 @@ module.exports = (app) => {
 
   // transaction don't depend on anything else...................
 
-  db.transaction = new Datastore()
-  db.transaction.loadDatabase()
+  db.transactions = new Datastore()
+  db.transactions.loadDatabase()
 
   // insert the sample data into our data store
-  db.transaction.insert(transaction)
+  db.transactions.insert(transactions)
 
   // initialize app.locals (these objects will be available to our controllers)
-  app.locals.transaction = db.transaction.find(transaction)
-  LOG.debug(`${app.locals.transaction.query.length} transaction seeded`)
+  app.locals.transactions = db.transactions.find(transactions)
+  LOG.debug(`${app.locals.transactions.query.length} transactions seeded`)
 
   // Products don't depend on anything else .....................
   db.categorys = new Datastore()
@@ -67,7 +66,7 @@ module.exports = (app) => {
   LOG.debug(`${app.locals.orders.query.length} orders seeded`)
 
   app.locals.accounts = db.accounts.find(accounts)
-  LOG.debug(`${app.locals.account.query.length} accounts seeded`)
+  LOG.debug(`${app.locals.accounts.query.length} accounts seeded`)
 
   app.locals.products = db.products.find(products)
   LOG.debug(`${app.locals.products.query.length} products seeded`)

@@ -9,7 +9,7 @@
 // see <https://mongoosejs.com/> for more information
 const mongoose = require('mongoose')
 
-const account = new mongoose.Schema({
+const AccountSchema = new mongoose.Schema({
   _id: { type: Number, required: true },
   email: { type: String, required: true },
   given: { type: String, required: true, default: 'Given' },
@@ -17,4 +17,4 @@ const account = new mongoose.Schema({
   password:{type:String,required: true, default:"000000"}
 })
 
-module.exports = mongoose.model('Order', OrderSchema)
+module.exports = mongoose.model('Account', AccountSchema)

@@ -1,17 +1,21 @@
+/**
+ * Author : satish gadge
+ * Email : s534929@nwmissouri.edu
+ */
 const express = require('express')
 const api = express.Router()
-const Model = require('../models/account.js')
+const Model = require('../models/category.js')
 const LOG = require('../utils/logger.js')
 const find = require('lodash.find')
 const remove = require('lodash.remove')
-const notfoundstring = 'accounts'
+const notfoundstring = 'categorys'
 
 // RESPOND WITH JSON DATA  --------------------------------------------
 
 // GET all JSON
 api.get('/findall', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
-  const data = req.app.locals.accounts.query
+  const data = req.app.locals.categorys.query
   res.send(JSON.stringify(data))
 })
 
@@ -19,7 +23,7 @@ api.get('/findall', (req, res) => {
 api.get('/findone/:id', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
   const id = parseInt(req.params.id, 10) // base 10
-  const data = req.app.locals.accounts.query
+  const data = req.app.locals.categorys.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
   res.send(JSON.stringify(item))
@@ -29,7 +33,7 @@ api.get('/findone/:id', (req, res) => {
 
 // GET to this controller base URI (the default)
 api.get('/', (req, res) => {
-  res.render('account/index.ejs')
+  res.render('category/index.ejs')
 })
 
 // GET create
@@ -37,11 +41,11 @@ api.get('/create', (req, res) => {
   LOG.info(`Handling GET /create${req}`)
   const item = new Model()
   LOG.debug(JSON.stringify(item))
-  res.render('account/create',
+  res.render('category/create',
     {
-      title: 'Create account',
+      title: 'Create category',
       layout: 'layout.ejs',
-      account: item
+      category: item
     })
 })
 
@@ -49,15 +53,15 @@ api.get('/create', (req, res) => {
 api.get('/delete/:id', (req, res) => {
   LOG.info(`Handling GET /delete/:id ${req}`)
   const id = parseInt(req.params.id, 10) // base 10
-  const data = req.app.locals.accounts.query
+  const data = req.app.locals.categorys.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
   LOG.info(`RETURNING VIEW FOR ${JSON.stringify(item)}`)
-  return res.render('account/delete.ejs',
+  return res.render('category/delete.ejs',
     {
-      title: 'Delete account',
+      title: 'Delete category',
       layout: 'layout.ejs',
-      account: item
+      category: item
     })
 })
 
@@ -65,15 +69,15 @@ api.get('/delete/:id', (req, res) => {
 api.get('/details/:id', (req, res) => {
   LOG.info(`Handling GET /details/:id ${req}`)
   const id = parseInt(req.params.id, 10) // base 10
-  const data = req.app.locals.accounts.query
+  const data = req.app.locals.categorys.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
   LOG.info(`RETURNING VIEW FOR ${JSON.stringify(item)}`)
-  return res.render('account/details.ejs',
+  return res.render('category/details.ejs',
     {
-      title: 'account Details',
+      title: 'category Details',
       layout: 'layout.ejs',
-      account: item
+      category: item
     })
 })
 
@@ -81,15 +85,15 @@ api.get('/details/:id', (req, res) => {
 api.get('/edit/:id', (req, res) => {
   LOG.info(`Handling GET /edit/:id ${req}`)
   const id = parseInt(req.params.id, 10) // base 10
-  const data = req.app.locals.accounts.query
+  const data = req.app.locals.categorys.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
   LOG.info(`RETURNING VIEW FOR${JSON.stringify(item)}`)
-  return res.render('account/edit.ejs',
+  return res.render('category/edit.ejs',
     {
-      title: 'accounts',
+      title: 'categorys',
       layout: 'layout.ejs',
-      account: item
+      category: item
     })
 })
 
@@ -99,18 +103,22 @@ api.get('/edit/:id', (req, res) => {
 api.post('/save', (req, res) => {
   LOG.info(`Handling POST ${req}`)
   LOG.debug(JSON.stringify(req.body))
-  const data = req.app.locals.accounts.query
+  const data = req.app.locals.categorys.query
   const item = new Model()
   LOG.info(`NEW ID ${req.body._id}`)
   item._id = parseInt(req.body._id, 10) // base 10
   item.email = req.body.email
   item.given = req.body.given
   item.family = req.body.family
-  item.pasword = req.body.pasword
-
+  item.street1 = req.body.street1
+  item.street2 = req.body.street2
+  item.city = req.body.city
+  item.state = req.body.state
+  item.zip = req.body.zip
+  item.country = req.body.country
     data.push(item)
-    LOG.info(`SAVING NEW account ${JSON.stringify(item)}`)
-    return res.redirect('/account')
+    LOG.info(`SAVING NEW category ${JSON.stringify(item)}`)
+    return res.redirect('/category')
   
 })
 
@@ -119,19 +127,22 @@ api.post('/save/:id', (req, res) => {
   LOG.info(`Handling SAVE request ${req}`)
   const id = parseInt(req.params.id, 10) // base 10
   LOG.info(`Handling SAVING ID=${id}`)
-  const data = req.app.locals.accounts.query
+  const data = req.app.locals.categorys.query
   const item = find(data, { _id: id })
   if (!item) { return res.end(notfoundstring) }
   LOG.info(`ORIGINAL VALUES ${JSON.stringify(item)}`)
   LOG.info(`UPDATED VALUES: ${JSON.stringify(req.body)}`)
-  item._id = parseInt(req.body._id, 10) 
   item.email = req.body.email
   item.given = req.body.given
   item.family = req.body.family
-  item.pasword = req.body.pasword
-
-  LOG.info(`SAVING CREATE account ${JSON.stringify(item)}`)
-  return res.redirect('/account')
+  item.street1 = req.body.street1
+  item.street2 = req.body.street2
+  item.city = req.body.city
+  item.state = req.body.state
+  item.zip = req.body.zip
+  item.country = req.body.country
+  LOG.info(`SAVING CREATE category ${JSON.stringify(item)}`)
+  return res.redirect('/category')
 })
 
 // DELETE id (uses HTML5 form method POST)
@@ -139,7 +150,7 @@ api.post('/delete/:id', (req, res) => {
   LOG.info(`Handling DELETE request ${req}`)
   const id = parseInt(req.params.id, 10) // base 10
   LOG.info(`Handling REMOVING ID=${id}`)
-  const data = req.app.locals.accounts.query
+  const data = req.app.locals.categorys.query
   const item = find(data, { _id: id })
   if (!item) {
     return res.end(notfoundstring)
@@ -151,7 +162,7 @@ api.post('/delete/:id', (req, res) => {
     const item = remove(data, { _id: id })
     console.log(`Permanently deleted item ${JSON.stringify(item)}`)
   }
-  return res.redirect('/account')
+  return res.redirect('/category')
 })
 
 module.exports = api

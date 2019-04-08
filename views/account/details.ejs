@@ -1,0 +1,25 @@
+<br/>
+<br/>
+<h2>account details</h2>
+<br/>
+<br/>   ID:
+<%=  account._id %>
+  <br> Email:
+  <%=account.email%>
+    <br/> datePlaced:
+    <%=account.datePlaced%>
+      <br/> dateShipped:
+      <%=account.dateShipped%>
+      <br/> paymentType:
+      <%=account.paymentType%>
+      </br>amountDue:
+      <%=account.amountDue%>
+    </br>paid:
+    <%=account.paid%>
+
+        <br/>
+        <br/>
+            <br/>
+            <form method="get" action="/account">
+              <input type="submit" value="Return to list" class="btn btn-caution" />
+            </form>

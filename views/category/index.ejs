@@ -1,0 +1,63 @@
+<br/>
+<br/>
+<div class="container-fluid">
+  <div class=row>
+    <div class="col col-md-12">
+      <a href="http://localhost:8089/category">Home (http://localhost:8089/category)</a><br>
+
+      <a href="http://localhost:8089/category/create">create New(http://localhost:8089/category/create)</a><br>
+      <a href="http://localhost:8089/category/details/10">Details of one Item (http://localhost:8089/category/details/10)</a><br>
+      <a href="http://localhost:8089/category/delete/10">Delete one item (http://localhost:8089/category/delete/10)</a><br>
+      <a href="http://localhost:8089/category/edit/10">Edit one item (http://localhost:8089/category/edit/10)</a><br>
+
+      <a href="category/create" class="btn btn-primary new">
+        Create a new category
+      </a>
+      <h2>Recent category entries</h2>
+      <p>There are
+        <%= categorys.query.length %> categorys.
+          <br/>
+      </p>
+      <% for (var i = categorys.query.length-1; i >= 0; i--) {   
+        category = categorys.query[i];   %>
+        <div class="panel panel-default">
+          <div class="panel-heading"></div>
+          <div class="text-muted pull-right"></div>
+          <div class="panel-body">
+            ID:
+            <%=  category._id %>
+              <br> Email:
+              <%=category.email%>
+                <br/> Given Name:
+                <%=category.given%>
+                  <br/> Family Name:
+                  <%=category.family%>
+                  <br/> Address:
+                  <br/>Street 1:
+                  <%=category.street1%>
+                  </br>Street 2:
+                  <%=category.street2%>
+                </br>City:
+                <%=category.city%>
+              </br>State:
+              <%=category.state%>
+            </br>Zip:
+            <%=category.zip%>
+            <br/>
+            <%=category.country%>
+
+                    <br/>
+                    <br/>
+                   
+                          <br/>
+                          <br/>
+                          <a href="/category/delete/<%= category._id  %>" class="btn btn-danger"> Delete </a>
+                          <a href="/category/details/<%= category._id %>" class="btn btn-info"> Details </a>
+                          <a href="/category/edit/<%= category._id %>" class="btn btn-warning"> Edit </a>
+          </div>
+        </div>
+        <% } %>
+
+    </div>
+  </div>
+</div>
